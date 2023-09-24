@@ -1,1 +1,18 @@
-<p>header works!</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="inner">
+      <button class="logo"><img src="/assets/logo.svg" alt="Youtube client logo"></button>
+      <input type="text" class="input" name="search" id="search" placeholder="What do you want to find out?">
+      <button class="search-button">Search</button>
+      <button class="filters-button" (click)="toggleFilter()"><img src="/assets/filters.svg" alt=""></button>
+      <div class="profile-wrapper">
+        <p class="profile-text">Your Name</p>
+        <button class="profile-button"><img src="/assets/profile.svg" alt=""></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="isFilterShown">
+  <app-filters></app-filters>
+</ng-container>

@@ -1,1 +1,24 @@
-<p>search-item works!</p>
+<div class="wrapper">
+  <img [src]="data.snippet.thumbnails.standard.url" alt="" class="image">
+  <div class="stats">
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/viewed.svg" alt="">
+      <p class="stats-counter">{{data.statistics.viewCount}}</p>
+    </div>
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/liked.svg" alt="">
+      <p class="stats-counter">{{data.statistics.likeCount}}</p>
+    </div>
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/dislike.svg" alt="">
+      <p class="stats-counter">{{data.statistics.dislikeCount}}</p>
+    </div>
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/comments.svg" alt="">
+      <p class="stats-counter">{{data.statistics.commentCount}}</p>
+    </div>
+  </div>
+  <p class="title">{{data.snippet.title}}</p>
+  <button class="more">more...</button>
+  <div class="line"></div>
+</div>

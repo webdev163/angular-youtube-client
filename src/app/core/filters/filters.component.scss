@@ -1,0 +1,40 @@
+.wrapper {
+  background: #e5e5e5;
+}
+
+.inner {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.text {
+  color: #929292;
+  font-size: 12px;
+}
+
+.btn-wrapper {
+  width: 252px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 11px;
+}
+
+.filter {
+  color: #2f80ed;
+  font-size: 12px;
+  text-decoration-line: underline;
+}
+
+.input {
+  border: none;
+  width: 149px;
+  height: 13px;
+  margin-left: 10px;
+  margin-right: 100px;
+}
