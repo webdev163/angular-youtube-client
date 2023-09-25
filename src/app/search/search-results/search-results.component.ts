@@ -9,4 +9,21 @@ import { SearchResponse } from 'src/app/shared/models/search-response.model';
 })
 export class SearchResultsComponent {
   public mockData: SearchResponse = data;
+  public sortByDate: '' | 'asc' | 'desc' = '';
+  public sortByViews: '' | 'asc' | 'desc' = '';
+  public keyword: string = '';
+
+  onDateSort() {
+    this.sortByDate = this.sortByDate === 'asc' ? 'desc' : 'asc';
+    this.sortByViews = '';
+  }
+
+  onViewsSort() {
+    this.sortByViews = this.sortByViews === 'asc' ? 'desc' : 'asc';
+    this.sortByDate = '';
+  }
+
+  onFilterByKeyword(str: string) {
+    this.keyword = str;
+  }
 }

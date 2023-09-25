@@ -1,5 +1,7 @@
 <div class="container">
   <div class="wrapper">
-    <app-search-item *ngFor="let card of mockData.items" [data]="card"></app-search-item>
+    <app-search-item
+      *ngFor="let card of (mockData.items | filterByKeyword: keyword | sortDate: sortByDate | sortViews: sortByViews)"
+      [data]="card"></app-search-item>
   </div>
 </div>

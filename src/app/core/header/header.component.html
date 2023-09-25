@@ -14,5 +14,6 @@
 </div>
 
 <ng-container *ngIf="isFilterShown">
-  <app-filters></app-filters>
+  <app-filters (onDateSortEvent)="dateSort()" (onViewsSortEvent)="viewsSort()"
+    (onKeywordFilterEvent)="filterByKeyword($event)"></app-filters>
 </ng-container>

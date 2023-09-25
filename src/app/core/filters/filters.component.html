@@ -3,11 +3,11 @@
     <div class="inner">
       <p class="text">Sorting by:</p>
       <div class="btn-wrapper">
-        <button class="filter">date</button>
-        <button class="filter">count of views</button>
-        <button class="filter">by word or sentance</button>
+        <button class="filter" (click)="dateSort()">date</button>
+        <button class="filter" (click)="viewsSort()">count of views</button>
+        <span class="filter">by word or sentance</span>
       </div>
-      <input class="input" type="text" name="filter" id="filter">
+      <input class="input" type="text" name="filter" id="filter" (input)="filterByKeyword($event)">
     </div>
   </div>
 </div>

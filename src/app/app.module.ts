@@ -12,6 +12,9 @@ import { NewCardComponent } from './core/new-card/new-card.component';
 import { FiltersComponent } from './core/filters/filters.component';
 import { CardDetailsComponent } from './search/card-details/card-details.component';
 import { CardBorderDirective } from './shared/directives/card-border.directive';
+import { SortDatePipe } from './shared/pipes/sort-date.pipe';
+import { SortViewsPipe } from './shared/pipes/sort-views.pipe';
+import { FilterByKeywordPipe } from './shared/pipes/filter-by-keyword.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { CardBorderDirective } from './shared/directives/card-border.directive';
     FiltersComponent,
     CardDetailsComponent,
     CardBorderDirective,
+    SortDatePipe,
+    SortViewsPipe,
+    FilterByKeywordPipe,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
