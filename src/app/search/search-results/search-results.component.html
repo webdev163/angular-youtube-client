@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="isShowResults" class="container">
   <div class="wrapper">
     <app-search-item
       *ngFor="let card of (mockData.items | filterByKeyword: keyword | sortDate: sortByDate | sortViews: sortByViews)"

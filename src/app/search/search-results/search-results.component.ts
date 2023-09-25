@@ -12,6 +12,7 @@ export class SearchResultsComponent {
   public sortByDate: '' | 'asc' | 'desc' = '';
   public sortByViews: '' | 'asc' | 'desc' = '';
   public keyword: string = '';
+  public isShowResults: boolean = false;
 
   onDateSort() {
     this.sortByDate = this.sortByDate === 'asc' ? 'desc' : 'asc';
@@ -25,5 +26,9 @@ export class SearchResultsComponent {
 
   onFilterByKeyword(str: string) {
     this.keyword = str;
+  }
+
+  onSearch(query: string) {
+    if (query) this.isShowResults = true;
   }
 }
