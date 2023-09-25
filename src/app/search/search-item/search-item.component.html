@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" [appCardBorder]="data.snippet.publishedAt">
   <img [src]="data.snippet.thumbnails.standard.url" alt="" class="image">
   <div class="stats">
     <div class="stats-item">
@@ -20,5 +20,4 @@
   </div>
   <p class="title">{{data.snippet.title}}</p>
   <button class="more">more...</button>
-  <div class="line"></div>
 </div>

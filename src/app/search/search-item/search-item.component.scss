@@ -67,5 +67,20 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: red;
+
+  &.red {
+    background-color: #eb5757;
+  }
+
+  &.yellow {
+    background-color: #f2c94c;
+  }
+
+  &.green {
+    background-color: #27ae60;
+  }
+
+  &.blue {
+    background-color: #2f80ed;
+  }
 }

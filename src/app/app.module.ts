@@ -11,6 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { NewCardComponent } from './core/new-card/new-card.component';
 import { FiltersComponent } from './core/filters/filters.component';
 import { CardDetailsComponent } from './search/card-details/card-details.component';
+import { CardBorderDirective } from './shared/directives/card-border.directive';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,11 @@ import { CardDetailsComponent } from './search/card-details/card-details.compone
     LoginComponent,
     NewCardComponent,
     FiltersComponent,
-    CardDetailsComponent
+    CardDetailsComponent,
+    CardBorderDirective,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
