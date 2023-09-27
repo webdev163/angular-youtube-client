@@ -8,8 +8,6 @@ export class FilterByKeywordPipe implements PipeTransform {
   transform(items: SearchItem[], keyword: string): SearchItem[] {
     if (keyword === '') return items;
 
-    return items.filter((item) =>
-      item.snippet.title.toLowerCase().includes(keyword.toLowerCase())
-    );
+    return items.filter((item) => item.snippet.title.toLowerCase().includes(keyword.toLowerCase()));
   }
 }

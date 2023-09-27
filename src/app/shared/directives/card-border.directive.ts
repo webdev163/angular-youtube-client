@@ -6,7 +6,10 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 export class CardBorderDirective implements OnInit {
   @Input('appCardBorder') publishedAt = '';
 
-  constructor(private elementRef: ElementRef, private renderer2: Renderer2) {}
+  constructor(
+    private elementRef: ElementRef,
+    private renderer2: Renderer2,
+  ) {}
 
   public ngOnInit(): void {
     const div = this.renderer2.createElement('div');
@@ -28,15 +31,9 @@ export class CardBorderDirective implements OnInit {
 
     if (publishedDate < sixMonthBeforeNow) {
       return 'red';
-    } else if (
-      publishedDate >= sixMonthBeforeNow &&
-      publishedDate < oneMonthBeforeNow
-    ) {
+    } else if (publishedDate >= sixMonthBeforeNow && publishedDate < oneMonthBeforeNow) {
       return 'yellow';
-    } else if (
-      publishedDate >= oneMonthBeforeNow &&
-      publishedDate < sevenDaysBeforeNow
-    ) {
+    } else if (publishedDate >= oneMonthBeforeNow && publishedDate < sevenDaysBeforeNow) {
       return 'green';
     } else {
       return 'blue';
