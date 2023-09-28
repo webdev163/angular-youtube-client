@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FiltersService } from '~/youtube/services/filters.service';
+import { AuthService } from '~/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +17,11 @@ export class HeaderComponent {
   public isFilterShown: boolean = false;
   public searchQuery: string = '';
 
-  constructor(public filtersService: FiltersService) {}
+  constructor(
+    public filtersService: FiltersService,
+    public authService: AuthService,
+    private router: Router,
+  ) {}
 
   public toggleFilter() {
     this.isFilterShown = !this.isFilterShown;
@@ -32,6 +38,11 @@ export class HeaderComponent {
   // filterByKeyword(keyword: string) {
   //   this.onKeywordFilterEvent.emit(keyword);
   // }
+
+  logout() {
+    this.authService.clearAuth();
+    this.router.navigate(['/']);
+  }
 
   searchByKeyword(e: Event) {
     e.preventDefault();

@@ -11,6 +11,7 @@
       <div class="profile-wrapper">
         <p class="profile-text">Your Name</p>
         <button class="profile-button"><img src="/assets/profile.svg" alt=""></button>
+        <button (click)="logout()" *ngIf="authService.isAuth">Log out</button>
       </div>
     </div>
   </div>
