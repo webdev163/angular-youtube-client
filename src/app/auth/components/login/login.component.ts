@@ -16,7 +16,8 @@ export class LoginComponent {
     private router: Router,
   ) {}
 
-  public onClick() {
+  public onSubmit(e: Event) {
+    e.preventDefault();
     if (!this.login || !this.password) return;
     this.authService.setAuth();
     this.router.navigate(['search']);

@@ -1,14 +1,14 @@
-<div class="wrapper">
+<form class="form" (submit)="onSubmit($event)">
   <p class="title">Login</p>
   <div class="form-item">
     <p class="form-title">login</p>
-    <input type="text" class="input" [(ngModel)]="login">
+    <input type="text" class="input" [(ngModel)]="login" name="login">
   </div>
   <div class="form-item">
     <p class="form-title">password</p>
-    <input type="password" class="input" [(ngModel)]="password">
+    <input type="password" class="input" [(ngModel)]="password" name="password">
   </div>
   <div class="button-wrapper">
-    <button class="button" (click)="onClick()">Login</button>
+    <button class="button">Login</button>
   </div>
-</div>
+</form>
