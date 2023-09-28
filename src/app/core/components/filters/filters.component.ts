@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FiltersService } from '~/youtube/services/filters.service';
 
 @Component({
   selector: 'app-filters',
@@ -10,15 +11,17 @@ export class FiltersComponent {
   @Output() onViewsSortEvent = new EventEmitter();
   @Output() onKeywordFilterEvent = new EventEmitter<string>();
 
-  dateSort() {
-    this.onDateSortEvent.emit();
-  }
+  constructor(public filtersService: FiltersService) {}
 
-  viewsSort() {
-    this.onViewsSortEvent.emit();
-  }
+  // dateSort() {
+  //   this.onDateSortEvent.emit();
+  // }
 
-  filterByKeyword(e: Event) {
-    this.onKeywordFilterEvent.emit((e.target as HTMLInputElement).value);
-  }
+  // viewsSort() {
+  //   this.onViewsSortEvent.emit();
+  // }
+
+  // filterByKeyword(e: Event) {
+  //   this.onKeywordFilterEvent.emit((e.target as HTMLInputElement).value);
+  // }
 }
