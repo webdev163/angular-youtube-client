@@ -1,0 +1,26 @@
+.wrapper {
+  height: calc(100vh - 85px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100px;
+  height: 91px;
+}
+
+.text {
+  margin-left: 27px;
+  max-width: 233px;
+  color: #828282;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
