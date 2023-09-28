@@ -52,9 +52,11 @@
   height: 32px;
   margin: 0 auto;
   margin-top: auto;
-  padding: 6px 25px 6px 31px;
+  padding: 6px 18px 6px 38px;
   border-radius: 5px;
   transition: background-color 0.2s;
+  cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: #5ea2ff;

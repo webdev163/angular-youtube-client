@@ -1,1 +1,35 @@
-<p>card-details works!</p>
+<div class="container">
+  <div class="wrapper">
+    <a routerLink="../" class="back"><img src="/assets/back.svg" alt=""></a>
+    <div class="outer">
+      <img [src]="data.snippet.thumbnails.standard.url" alt="" class="image">
+      <div class="inner" [appCardBorder]="data.snippet.publishedAt">
+        <div class="header">
+          <p class="title">{{data.snippet.title}}</p>
+          <p class="date">{{data.snippet.publishedAt | date}}</p>
+        </div>
+        <p class="description-title">Description:</p>
+        <p class="description-text">{{data.snippet.description}}</p>
+        <div class="stats">
+          <div class="stats-item">
+            <img class="stats-icon" src="/assets/viewed.svg" alt="">
+            <p class="stats-counter">{{data.statistics.viewCount}}</p>
+          </div>
+          <div class="stats-item">
+            <img class="stats-icon" src="/assets/liked.svg" alt="">
+            <p class="stats-counter">{{data.statistics.likeCount}}</p>
+          </div>
+          <div class="stats-item">
+            <img class="stats-icon" src="/assets/dislike.svg" alt="">
+            <p class="stats-counter">{{data.statistics.dislikeCount}}</p>
+          </div>
+          <div class="stats-item">
+            <img class="stats-icon" src="/assets/comments.svg" alt="">
+            <p class="stats-counter">{{data.statistics.commentCount}}</p>
+          </div>
+        </div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</div>

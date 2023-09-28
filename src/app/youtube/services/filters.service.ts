@@ -29,7 +29,6 @@ export class FiltersService {
   }
 
   public onSearch(query: string) {
-    console.log('123');
     if (query) this.isShowResults = true;
   }
 }
