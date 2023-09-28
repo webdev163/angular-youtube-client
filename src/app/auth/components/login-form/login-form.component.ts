@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '~/auth/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss'],
 })
-export class LoginComponent {
+export class LoginFormComponent {
   public login: string = '';
   public password: string = '';
 

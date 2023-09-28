@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { VideoItemPageComponent } from './pages/video-item-page/video-item-page.component';
 
 const routes: Routes = [
-  { path: '', component: SearchResultsComponent },
-  { path: ':id', component: CardDetailsComponent },
+  { path: '', component: SearchPageComponent },
+  { path: ':id', component: VideoItemPageComponent },
 ];
 
 @NgModule({
