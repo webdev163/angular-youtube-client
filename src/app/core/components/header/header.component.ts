@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FiltersService } from '~/youtube/services/filters.service';
 import { AuthService } from '~/auth/services/auth.service';
 import { Router } from '@angular/router';
@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  // @Output() onDateSortEvent = new EventEmitter();
-  // @Output() onViewsSortEvent = new EventEmitter();
-  // @Output() onKeywordFilterEvent = new EventEmitter<string>();
+  // @Output() dateSortEvent = new EventEmitter();
+  // @Output() viewsSortEvent = new EventEmitter();
+  // @Output() keywordFilterEvent = new EventEmitter<string>();
   // @Output() onSearchSubmitEvent = new EventEmitter<string>();
 
-  public isFilterShown: boolean = false;
-  public searchQuery: string = '';
+  public isFilterShown = false;
+  public searchQuery = '';
 
   constructor(
     public filtersService: FiltersService,
@@ -28,15 +28,15 @@ export class HeaderComponent {
   }
 
   // dateSort() {
-  //   this.onDateSortEvent.emit();
+  //   this.dateSortEvent.emit();
   // }
 
   // viewsSort() {
-  //   this.onViewsSortEvent.emit();
+  //   this.viewsSortEvent.emit();
   // }
 
   // filterByKeyword(keyword: string) {
-  //   this.onKeywordFilterEvent.emit(keyword);
+  //   this.keywordFilterEvent.emit(keyword);
   // }
 
   logout() {

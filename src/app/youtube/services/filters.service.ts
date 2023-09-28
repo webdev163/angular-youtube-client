@@ -9,10 +9,8 @@ export class FiltersService {
   public mockData: SearchResponse = data;
   public sortByDate: '' | 'asc' | 'desc' = '';
   public sortByViews: '' | 'asc' | 'desc' = '';
-  public keyword: string = '';
-  public isShowResults: boolean = false;
-
-  constructor() {}
+  public keyword = '';
+  public isShowResults = false;
 
   public onDateSort() {
     this.sortByDate = this.sortByDate === 'asc' ? 'desc' : 'asc';

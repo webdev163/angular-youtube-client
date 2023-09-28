@@ -7,21 +7,21 @@ import { FiltersService } from '~/youtube/services/filters.service';
   styleUrls: ['./filters.component.scss'],
 })
 export class FiltersComponent {
-  @Output() onDateSortEvent = new EventEmitter();
-  @Output() onViewsSortEvent = new EventEmitter();
-  @Output() onKeywordFilterEvent = new EventEmitter<string>();
+  @Output() dateSortEvent = new EventEmitter();
+  @Output() viewsSortEvent = new EventEmitter();
+  @Output() keywordFilterEvent = new EventEmitter<string>();
 
   constructor(public filtersService: FiltersService) {}
 
   // dateSort() {
-  //   this.onDateSortEvent.emit();
+  //   this.dateSortEvent.emit();
   // }
 
   // viewsSort() {
-  //   this.onViewsSortEvent.emit();
+  //   this.viewsSortEvent.emit();
   // }
 
   // filterByKeyword(e: Event) {
-  //   this.onKeywordFilterEvent.emit((e.target as HTMLInputElement).value);
+  //   this.keywordFilterEvent.emit((e.target as HTMLInputElement).value);
   // }
 }

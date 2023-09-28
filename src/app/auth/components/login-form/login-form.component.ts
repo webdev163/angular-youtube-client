@@ -8,8 +8,8 @@ import { AuthService } from '~/auth/services/auth.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-  public login: string = '';
-  public password: string = '';
+  public login = '';
+  public password = '';
 
   constructor(
     private authService: AuthService,

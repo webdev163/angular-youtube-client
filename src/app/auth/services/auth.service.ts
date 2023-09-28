@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
-  public isAuth: boolean = false;
-
-  constructor() {}
+  public isAuth = false;
 
   public getAuth() {
     if (localStorage.getItem('login') && localStorage.getItem('login') === '1') {
