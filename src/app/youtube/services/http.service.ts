@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SearchResponse } from '~/shared/models/search-response.model';
-import { SearchItem } from '~/shared/models/search-item.model';
 import { EMPTY, Observable, catchError } from 'rxjs';
 
 @Injectable({

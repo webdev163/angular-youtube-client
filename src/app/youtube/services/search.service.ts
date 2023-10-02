@@ -14,8 +14,8 @@ export class SearchService {
 
   getVideos(query: string) {
     this.httpService.fetchVideos(query).subscribe((data: SearchResponse) => {
-      const ids = data.items.map((item) => item.id.videoId).join(',');
-      this.httpService.fetchVideo(ids).subscribe((data: any) => {
+      const ids = data.items.map((item) => (item.id as { kind: string; videoId: string }).videoId).join(',');
+      this.httpService.fetchVideo(ids).subscribe((data: SearchResponse) => {
         this.videosData$.next(data.items);
       });
     });
