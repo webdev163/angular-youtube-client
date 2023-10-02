@@ -1,5 +1,5 @@
 <div class="wrapper" [appCardBorder]="data.snippet.publishedAt">
-  <img [src]="data.snippet.thumbnails.standard.url" alt="" class="image">
+  <img [src]="data.snippet.thumbnails.medium.url" alt="" class="image">
   <div class="stats">
     <div class="stats-item">
       <img class="stats-icon" src="/assets/viewed.svg" alt="">
@@ -19,5 +19,5 @@
     </div>
   </div>
   <p class="title">{{data.snippet.title}}</p>
-  <a class="more" [routerLink]="data.id">more...</a>
+  <a class="more" [routerLink]="data.id.videoId">more...</a>
 </div>

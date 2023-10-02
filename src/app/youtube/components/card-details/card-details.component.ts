@@ -20,8 +20,8 @@ export class CardDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      const data = this.filtersService.mockData.items.find((el) => el.id === this.id);
-      if (data) this.data = data;
+      // const data = this.filtersService.mockData.items.find((el) => el.id.videoId === this.id);
+      // if (data) this.data = data;
     });
   }
 }

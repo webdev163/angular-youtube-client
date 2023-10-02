@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { SearchResponse } from '~/shared/models/search-response.model';
-import data from './data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FiltersService {
-  public mockData: SearchResponse = data;
   public sortByDate: '' | 'asc' | 'desc' = '';
   public sortByViews: '' | 'asc' | 'desc' = '';
   public keyword = '';

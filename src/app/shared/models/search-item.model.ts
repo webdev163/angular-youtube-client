@@ -30,7 +30,7 @@ interface ItemSnippet {
 export interface SearchItem {
   kind: string;
   etag: string;
-  id: string;
+  id: { kind: string; videoId: string };
   snippet: ItemSnippet;
   statistics: {
     viewCount: string;

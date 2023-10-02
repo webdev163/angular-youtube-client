@@ -1,7 +1,8 @@
 <div *ngIf="filtersService.isShowResults" class="container">
+  <button (click)="onFetch()">Fetch</button>
   <div class="wrapper">
     <app-search-item
-      *ngFor="let card of (filtersService.mockData.items | filterByKeyword: filtersService.keyword | sortDate: filtersService.sortByDate | sortViews: filtersService.sortByViews)"
+      *ngFor="let card of (searchService.videosData | filterByKeyword: filtersService.keyword | sortDate: filtersService.sortByDate | sortViews: filtersService.sortByViews)"
       [data]="card"></app-search-item>
   </div>
 </div>
