@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // @Output() onSearchSubmitEvent = new EventEmitter<string>();
 
   public isFilterShown = false;
-  public searchQuery = '';
+  public isAuth = false;
 
   public subject = new Subject<string>();
   public subscription!: Subscription;
@@ -43,6 +43,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((query) => {
         this.searchService.getVideos(query);
       });
+    this.subscription.add(
+      this.authService.isAuth$.subscribe((isAuth) => {
+        this.isAuth = isAuth;
+      }),
+    );
   }
 
   ngOnDestroy() {
@@ -63,6 +68,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onInput(e: Event) {
     this.subject.next((e.target as HTMLInputElement).value);
+  }
+
+  login() {
+    this.router.navigate(['auth', 'login']);
   }
 
   logout() {

@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getAuth();
-    if (this.authService.isAuth) {
+    if (this.authService.isAuth$.value) {
       this.router.navigate(['search']);
     } else {
       this.router.navigate(['auth', 'login']);

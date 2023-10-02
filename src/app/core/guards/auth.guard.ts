@@ -6,5 +6,5 @@ export const authGuard: CanMatchFn = () => {
   const authService = inject(AuthService);
   authService.getAuth();
 
-  return authService.isAuth;
+  return authService.isAuth$;
 };

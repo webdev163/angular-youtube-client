@@ -8,9 +8,12 @@
       </form>
       <button class="filters-button" (click)="toggleFilter()"><img src="/assets/filters.svg" alt=""></button>
       <div class="profile-wrapper">
-        <p class="profile-text">Your Name</p>
-        <button class="profile-button"><img src="/assets/profile.svg" alt=""></button>
-        <button (click)="logout()" *ngIf="authService.isAuth">Log out</button>
+        <!-- <p class="profile-text">Your Name</p>
+        <button class="profile-button"><img src="/assets/profile.svg" alt=""></button> -->
+        <button class="profile-button" (click)="logout()" *ngIf="isAuth; else notLogged">Log out</button>
+        <ng-template #notLogged>
+          <button class="profile-button" (click)="login()">Log in</button>
+        </ng-template>
       </div>
     </div>
   </div>
