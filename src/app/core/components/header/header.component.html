@@ -2,10 +2,9 @@
   <div class="container">
     <div class="inner">
       <button class="logo"><img src="/assets/logo.svg" alt="Youtube client logo"></button>
-      <form (submit)="searchByKeyword($event)">
-        <input [(ngModel)]="searchQuery" type="text" class="input" name="search" id="search"
+      <form>
+        <input (input)="onInput($event)" type="text" class="input" name="search" id="search"
           placeholder="What do you want to find out?">
-        <button class="search-button">Search</button>
       </form>
       <button class="filters-button" (click)="toggleFilter()"><img src="/assets/filters.svg" alt=""></button>
       <div class="profile-wrapper">

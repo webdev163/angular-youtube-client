@@ -12,25 +12,23 @@ export class HttpService {
 
   public videosData = null;
 
-  public fetchVideos(): Observable<SearchResponse> {
-    const options = {
-      params: {},
-    };
+  public fetchVideos(query: string): Observable<SearchResponse> {
+    const params = new HttpParams().set('maxResults', 20).set('part', 'snippet').set('type', 'video').set('q', query);
 
-    return this.http.get<SearchResponse>('search?part=snippet&maxResults=20&q=moscow&type=video', undefined).pipe(
+    return this.http.get<SearchResponse>('search', { params }).pipe(
       catchError((e) => {
-        console.log(e);
+        console.log('Error', e);
         return EMPTY;
       }),
     );
   }
 
-  public fetchVideo(ids: string): Observable<SearchItem> {
+  public fetchVideo(ids: string): Observable<SearchResponse> {
     const params = new HttpParams().set('id', ids).set('part', 'snippet,statistics');
 
-    return this.http.get<SearchItem>('videos', { params }).pipe(
+    return this.http.get<SearchResponse>('videos', { params }).pipe(
       catchError((e) => {
-        console.log(e);
+        console.log('Error', e);
         return EMPTY;
       }),
     );

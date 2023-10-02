@@ -1,8 +1,8 @@
-<div class="container">
+<div *ngIf="data" class="container">
   <div class="wrapper">
     <a routerLink="../" class="back"><img src="/assets/back.svg" alt=""></a>
     <div class="outer">
-      <img [src]="data.snippet.thumbnails.standard.url" alt="" class="image">
+      <img [src]="data.snippet.thumbnails.medium.url" alt="" class="image">
       <div class="inner" [appCardBorder]="data.snippet.publishedAt">
         <div class="header">
           <p class="title">{{data.snippet.title}}</p>

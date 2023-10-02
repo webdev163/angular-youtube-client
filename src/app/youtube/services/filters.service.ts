@@ -7,7 +7,6 @@ export class FiltersService {
   public sortByDate: '' | 'asc' | 'desc' = '';
   public sortByViews: '' | 'asc' | 'desc' = '';
   public keyword = '';
-  public isShowResults = false;
 
   public onDateSort() {
     this.sortByDate = this.sortByDate === 'asc' ? 'desc' : 'asc';
@@ -21,9 +20,5 @@ export class FiltersService {
 
   public onFilterByKeyword(e: Event) {
     this.keyword = (e.target as HTMLInputElement).value;
-  }
-
-  public onSearch(query: string) {
-    if (query) this.isShowResults = true;
   }
 }
