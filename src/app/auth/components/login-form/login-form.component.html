@@ -1,12 +1,37 @@
-<form class="form" (submit)="onSubmit($event)">
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <p class="title">Login</p>
   <div class="form-item">
     <p class="form-title">login</p>
-    <input type="text" class="input" [(ngModel)]="login" name="login">
+    <input type="text" class="input" formControlName="login" name="login">
+    <div *ngIf="isSubmitted && getLogin?.invalid" class="alert">
+      <div *ngIf="getLogin?.errors?.['required']">
+        Please enter a login email
+      </div>
+      <div *ngIf="getLogin?.errors?.['email']">
+        The login email is invalid
+      </div>
+    </div>
   </div>
   <div class="form-item">
     <p class="form-title">password</p>
-    <input type="password" class="input" [(ngModel)]="password" name="password">
+    <input type="password" class="input" formControlName="password" name="password">
+    <div *ngIf="isSubmitted && getPassword?.invalid" class="alert">
+      <div *ngIf="getPassword?.errors?.['required']">
+        Please enter a password
+      </div>
+      <div
+        *ngIf="getPassword?.errors?.['shortPassword'] || getPassword?.errors?.['letterCaseInvalid'] || getPassword?.errors?.['letterNumberInvalid'] || getPassword?.errors?.['specialCharactersMissing']">
+        Your password isn't strong enough:
+        <div *ngIf="getPassword?.errors?.['shortPassword']">- at least 8 characters</div>
+        <div *ngIf="getPassword?.errors?.['letterCaseInvalid']">- a mixture of both uppercase and lowercase letters
+        </div>
+        <div *ngIf="getPassword?.errors?.['letterNumberInvalid']">- a mixture of letters and numbers
+        </div>
+        <div *ngIf="getPassword?.errors?.['specialCharactersMissing']">- inclusion of at least one special character,
+          e.g., ! @ # ? ]
+        </div>
+      </div>
+    </div>
   </div>
   <div class="button-wrapper">
     <button class="button">Login</button>
