@@ -9,5 +9,5 @@ import { SearchItem } from 'src/app/shared/models/search-item.model';
 export class SearchItemComponent {
   @Input() data!: SearchItem;
 
-  public id = this.data.id as string;
+  public id = this.data?.id as string;
 }
