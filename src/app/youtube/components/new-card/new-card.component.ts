@@ -50,7 +50,7 @@ export class NewCardComponent implements OnInit {
 
   urlValidator(control: AbstractControl): ValidationErrors | null {
     if (control.value.length === 0) return null;
-    return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gm.test(
+    return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/gm.test(
       control.value,
     )
       ? null
