@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
     <div class="inner">
-      <button class="logo"><img src="/assets/logo.svg" alt="Youtube client logo"></button>
+      <button (click)="onLogoClick()" class="logo"><img src="/assets/logo.svg" alt="Youtube client logo"></button>
       <form>
         <input (input)="onInput($event)" type="text" class="input" name="search" id="search"
           placeholder="What do you want to find out?">
@@ -10,7 +10,10 @@
       <div class="profile-wrapper">
         <!-- <p class="profile-text">Your Name</p>
         <button class="profile-button"><img src="/assets/profile.svg" alt=""></button> -->
-        <button class="profile-button" (click)="logout()" *ngIf="isAuth; else notLogged">Log out</button>
+        <div *ngIf="isAuth; else notLogged">
+          <button class="profile-button" (click)="onAdmin()">Admin</button>
+          <button class="profile-button" (click)="logout()">Log out</button>
+        </div>
         <ng-template #notLogged>
           <button class="profile-button" (click)="login()">Log in</button>
         </ng-template>
