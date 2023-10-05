@@ -1,4 +1,4 @@
-<div class="wrapper" [appCardBorder]="data.snippet.publishedAt">
+<div class="wrapper" *ngIf="data" [appCardBorder]="data.snippet.publishedAt">
   <img [src]="data.snippet.thumbnails.medium.url" alt="" class="image">
   <div class="stats">
     <div class="stats-item">
@@ -20,4 +20,10 @@
   </div>
   <p class="title">{{data.snippet.title}}</p>
   <a class="more" [routerLink]="id">more...</a>
+</div>
+
+<div class="wrapper" *ngIf="customData" [appCardBorder]="customData.date">
+  <img [src]="customData.image" alt="" class="image">
+  <p class="title">{{customData.title}}</p>
+  <a class="more" [routerLink]="'custom' + customData.id">more...</a>
 </div>

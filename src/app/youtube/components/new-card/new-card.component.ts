@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '~/auth/services/auth.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AppState } from '~/core/store/state.model';
+import { Store } from '@ngrx/store';
+import { takeOne } from '~/shared/utils/takeOne';
+
+import * as fromYoutube from '~/core/store/reducers/youtube.reducer';
+import * as YoutubeActions from '~/core/store/actions/youtube.actions';
 
 @Component({
   selector: 'app-new-card',
@@ -11,11 +16,12 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators }
 export class NewCardComponent implements OnInit {
   public isSubmitted = false;
   public newCardForm!: FormGroup;
+  public customVideosLength = takeOne(this.store.select(fromYoutube.selectCustomVideosLength));
 
   constructor(
-    private authService: AuthService,
     private router: Router,
     private fb: FormBuilder,
+    private store: Store<AppState>,
   ) {}
 
   ngOnInit() {
@@ -67,6 +73,9 @@ export class NewCardComponent implements OnInit {
   public onSubmit() {
     this.isSubmitted = true;
     if (this.newCardForm.invalid) return;
+    this.store.dispatch(
+      YoutubeActions.AddCustomVideo({ payload: { ...this.newCardForm.value, id: this.customVideosLength } }),
+    );
     this.router.navigate(['search']);
   }
 }

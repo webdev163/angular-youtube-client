@@ -14,6 +14,7 @@ import * as fromYoutube from '~/core/store/reducers/youtube.reducer';
 })
 export class SearchResultsComponent {
   public data = this.store.select(fromYoutube.selectYoutubeVideos);
+  public customData = this.store.select(fromYoutube.selectCustomVideos);
   public subscription!: Subscription;
 
   constructor(

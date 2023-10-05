@@ -7,6 +7,7 @@ export const initialState: YoutubeState = {
   videos: [],
   isFetched: false,
   error: '',
+  customVideos: [],
 };
 
 export const youtubeReducer = createReducer(
@@ -26,6 +27,13 @@ export const youtubeReducer = createReducer(
       error: 'Failed to fetch videos',
     }),
   ),
+  on(
+    YoutubeActions.AddCustomVideo,
+    (state, { payload }): YoutubeState => ({
+      ...state,
+      customVideos: [...state.customVideos, payload],
+    }),
+  ),
 );
 
 export function reducer(state: YoutubeState | undefined, action: Action) {
@@ -34,3 +42,10 @@ export function reducer(state: YoutubeState | undefined, action: Action) {
 
 export const selectYoutubeStore = (state: AppState) => state.youtube;
 export const selectYoutubeVideos = createSelector(selectYoutubeStore, (state: YoutubeState) => state.videos);
+export const selectCustomVideos = createSelector(selectYoutubeStore, (state: YoutubeState) => state.customVideos);
+export const selectCustomVideoByIndex = (index: number) =>
+  createSelector(selectYoutubeStore, (state: YoutubeState) => state.customVideos[index]);
+export const selectCustomVideosLength = createSelector(
+  selectYoutubeStore,
+  (state: YoutubeState) => state.customVideos.length,
+);

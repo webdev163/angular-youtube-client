@@ -33,3 +33,21 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="customData$ | async" class="container">
+  <div class="wrapper">
+    <a routerLink="../" class="back"><img src="/assets/back.svg" alt=""></a>
+    <div class="outer">
+      <img [src]="(customData$ | async)!.image" alt="" class="image">
+      <div class="inner" [appCardBorder]="(customData$ | async)!.date">
+        <div class="header">
+          <p class="title">{{(customData$ | async)!.title}}</p>
+          <p class="date">{{(customData$ | async)!.date | date}}</p>
+        </div>
+        <p class="description-title">Description:</p>
+        <p class="description-text">{{(customData$ | async)!.description}}</p>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</div>

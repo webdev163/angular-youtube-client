@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SearchItem } from 'src/app/shared/models/search-item.model';
+import { CustomItem } from '~/shared/models/custom-item.model';
 
 @Component({
   selector: 'app-search-item',
@@ -8,6 +9,7 @@ import { SearchItem } from 'src/app/shared/models/search-item.model';
 })
 export class SearchItemComponent {
   @Input() data!: SearchItem;
+  @Input() customData!: CustomItem;
 
   public id = this.data?.id as string;
 }
