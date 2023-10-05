@@ -1,7 +1,7 @@
 <div class="container">
   <div class="wrapper">
     <app-search-item
-      *ngFor="let card of (data | filterByKeyword: filtersService.keyword | sortDate: filtersService.sortByDate | sortViews: filtersService.sortByViews)"
+      *ngFor="let card of (data | async)! | filterByKeyword: filtersService.keyword | sortDate: filtersService.sortByDate | sortViews: filtersService.sortByViews"
       [data]="card"></app-search-item>
   </div>
 </div>

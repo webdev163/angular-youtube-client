@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Subscription, Subject, filter, debounceTime, distinctUntilChanged } from 'rxjs';
 import { SearchService } from '~/youtube/services/search.service';
 
+import * as YoutubeActions from '~/core/store/actions/youtube.actions';
+import { Store } from '@ngrx/store';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -27,6 +30,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     public authService: AuthService,
     public searchService: SearchService,
     private router: Router,
+    private store: Store,
   ) {}
 
   public toggleFilter() {
@@ -41,6 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         distinctUntilChanged(),
       )
       .subscribe((query) => {
+        this.store.dispatch(YoutubeActions.FetchVideos({ query }));
         this.searchService.getVideos(query);
       });
     this.subscription.add(
