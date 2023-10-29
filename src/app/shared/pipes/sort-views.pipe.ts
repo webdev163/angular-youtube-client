@@ -9,13 +9,9 @@ export class SortViewsPipe implements PipeTransform {
     if (order === '') return items;
 
     if (order === 'asc') {
-      return [...items].sort(
-        (a, b) => new Date(a.statistics.viewCount).getTime() - new Date(b.statistics.viewCount).getTime(),
-      );
+      return [...items].sort((a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount));
     } else {
-      return [...items].sort(
-        (a, b) => new Date(b.statistics.viewCount).getTime() - new Date(a.statistics.viewCount).getTime(),
-      );
+      return [...items].sort((a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));
     }
   }
 }
