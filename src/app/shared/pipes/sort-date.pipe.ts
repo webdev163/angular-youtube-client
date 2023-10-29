@@ -9,11 +9,11 @@ export class SortDatePipe implements PipeTransform {
     if (order === '') return items;
 
     if (order === 'asc') {
-      return items.sort(
+      return [...items].sort(
         (a, b) => new Date(a.snippet.publishedAt).getTime() - new Date(b.snippet.publishedAt).getTime(),
       );
     } else {
-      return items.sort(
+      return [...items].sort(
         (a, b) => new Date(b.snippet.publishedAt).getTime() - new Date(a.snippet.publishedAt).getTime(),
       );
     }
