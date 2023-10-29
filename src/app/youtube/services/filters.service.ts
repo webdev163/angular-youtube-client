@@ -1,24 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable, WritableSignal, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FiltersService {
-  public sortByDate: '' | 'asc' | 'desc' = '';
-  public sortByViews: '' | 'asc' | 'desc' = '';
-  public keyword = '';
+  public sortByDate: WritableSignal<'' | 'asc' | 'desc'> = signal('');
+  public sortByViews: WritableSignal<'' | 'asc' | 'desc'> = signal('');
+  public keyword = signal('');
+
+  // constructor() {
+  //   effect(() => {
+  //     console.log(`The current sortByDate value is: ${this.sortByDate()}`);
+  //   });
+  // }
 
   public onDateSort() {
-    this.sortByDate = this.sortByDate === 'asc' ? 'desc' : 'asc';
-    this.sortByViews = '';
+    this.sortByDate() === 'asc' ? this.sortByDate.set('desc') : this.sortByDate.set('asc');
+    this.sortByViews.set('');
   }
 
   public onViewsSort() {
-    this.sortByViews = this.sortByViews === 'asc' ? 'desc' : 'asc';
-    this.sortByDate = '';
+    this.sortByViews() === 'asc' ? this.sortByViews.set('desc') : this.sortByViews.set('asc');
+    this.sortByDate.set('');
   }
 
   public onFilterByKeyword(e: Event) {
-    this.keyword = (e.target as HTMLInputElement).value;
+    this.keyword.set((e.target as HTMLInputElement).value);
   }
 }
