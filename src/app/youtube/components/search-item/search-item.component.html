@@ -1,0 +1,29 @@
+<div class="wrapper" *ngIf="data" [appCardBorder]="data.snippet.publishedAt">
+  <img [src]="data.snippet.thumbnails.medium.url" alt="" class="image">
+  <div class="stats">
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/viewed.svg" alt="">
+      <p class="stats-counter">{{data.statistics.viewCount}}</p>
+    </div>
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/liked.svg" alt="">
+      <p class="stats-counter">{{data.statistics.likeCount}}</p>
+    </div>
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/dislike.svg" alt="">
+      <p class="stats-counter">{{data.statistics.dislikeCount}}</p>
+    </div>
+    <div class="stats-item">
+      <img class="stats-icon" src="/assets/comments.svg" alt="">
+      <p class="stats-counter">{{data.statistics.commentCount}}</p>
+    </div>
+  </div>
+  <p class="title">{{data.snippet.title}}</p>
+  <a class="more" [routerLink]="id">more...</a>
+</div>
+
+<div class="wrapper" *ngIf="customData" [appCardBorder]="customData.date">
+  <img [src]="customData.image" alt="" class="image">
+  <p class="title">{{customData.title}}</p>
+  <a class="more" [routerLink]="'custom' + customData.id">more...</a>
+</div>

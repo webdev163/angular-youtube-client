@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="inner">
+      <p class="text">Sorting by:</p>
+      <div class="btn-wrapper">
+        <button class="filter" (click)="filtersService.onDateSort()">date</button>
+        <button class="filter" (click)="filtersService.onViewsSort()">count of views</button>
+        <span class="filter">by word or sentance</span>
+      </div>
+      <input class="input" type="text" name="filter" id="filter" (input)="filtersService.onFilterByKeyword($event)">
+    </div>
+  </div>
+</div>

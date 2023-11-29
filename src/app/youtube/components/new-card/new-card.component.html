@@ -1,0 +1,66 @@
+<form class="form" [formGroup]="newCardForm" (ngSubmit)="onSubmit()">
+  <p class="title">Create new card</p>
+  <div class="form-item">
+    <p class="form-title">Title</p>
+    <input type="text" class="input" formControlName="title" name="title">
+    <div *ngIf="isSubmitted && getTitle?.invalid" class="alert">
+      <div *ngIf="getTitle?.errors?.['required']">
+        Please enter a title
+      </div>
+      <div *ngIf="getTitle?.errors?.['minlength']">
+        The title is too short
+      </div>
+      <div *ngIf="getTitle?.errors?.['maxlength']">
+        The title is too long
+      </div>
+    </div>
+  </div>
+  <div class="form-item">
+    <p class="form-title">Description</p>
+    <input type="text" class="input" formControlName="description" name="description">
+    <div *ngIf="isSubmitted && getDescription?.invalid" class="alert">
+      <div *ngIf="getDescription?.errors?.['maxlength']">
+        The description is too long
+      </div>
+    </div>
+  </div>
+  <div class="form-item">
+    <p class="form-title">Image</p>
+    <input type="text" class="input" formControlName="image" name="image">
+    <div *ngIf="isSubmitted && getImage?.invalid" class="alert">
+      <div *ngIf="getImage?.errors?.['required']">
+        Please enter a link to the image
+      </div>
+      <div *ngIf="getImage?.errors?.['urlInvalid']">
+        The image link is invalid
+      </div>
+    </div>
+  </div>
+  <div class="form-item">
+    <p class="form-title">Videolink</p>
+    <input type="text" class="input" formControlName="videolink" name="videolink">
+    <div *ngIf="isSubmitted && getVideolink?.invalid" class="alert">
+      <div *ngIf="getVideolink?.errors?.['required']">
+        Please enter a link to the video
+      </div>
+      <div *ngIf="getVideolink?.errors?.['urlInvalid']">
+        The video link is invalid
+      </div>
+    </div>
+  </div>
+  <div class="form-item">
+    <p class="form-title">Date</p>
+    <input type="date" class="input" formControlName="date" name="date">
+    <div *ngIf="isSubmitted && getDate?.invalid" class="alert">
+      <div *ngIf="getDate?.errors?.['required']">
+        Please enter a creation date
+      </div>
+      <div *ngIf="getDate?.errors?.['dateInvalid']">
+        The date is invalid
+      </div>
+    </div>
+  </div>
+  <div class="button-wrapper">
+    <button class="button">Create card</button>
+  </div>
+</form>
